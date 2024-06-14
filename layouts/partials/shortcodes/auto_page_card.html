@@ -1,0 +1,34 @@
+{{- $context := . -}}
+
+{{ with $context }}
+
+  {{ if (isset .Params "featured") }}
+
+  {{ $image := .Params.featured.url }}
+  {{- $permalink_pretty := .RelPermalink | replaceRE "\\.html$" "/" -}}
+  {{ $image_full_url := (printf "%s%s" $permalink_pretty $image) }}
+
+  {{- partial "shortcodes/card" (dict
+    "page"        .Page
+    "link"        .RelPermalink
+    "title"       .Title
+    "subtitle"    .Summary
+    "image"       $image_full_url
+    )
+  -}}
+
+  {{ else }}
+
+  <!-- Local varibale can't be changed inside scope -->
+
+  {{- partial "shortcodes/card" (dict
+    "page"        .Page
+    "link"        .RelPermalink
+    "title"       .Title
+    "subtitle"    .Summary
+    )
+  -}}
+
+
+  {{ end }}
+{{ end }}

@@ -1,0 +1,7 @@
+{{/*  {{- $page_url := .page_url -}}  */}}
+
+{{ range where site.RegularPages "Params.url" "eq" (index .Params 0) }}
+
+{{- partial "shortcodes/auto_page_card" . -}}
+
+{{end}}
