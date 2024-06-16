@@ -50,7 +50,8 @@
     {{- $title -}}
   </span>
   {{- with $subtitle -}}
-    <div class="hextra-card-subtitle hx-line-clamp-3 hx-text-sm hx-font-normal hx-text-gray-500 dark:hx-text-gray-400 hx-px-4 hx-mb-4 hx-mt-2">{{- $subtitle | markdownify -}}</div>
+  {{/*  NOTE: Line clamp decide how long the card subtitle section can be */}}
+    <div class="hextra-card-subtitle hx-line-clamp-5 hx-text-sm hx-font-normal hx-text-gray-500 dark:hx-text-gray-400 hx-px-4 hx-mb-4 hx-mt-2">{{- $subtitle | markdownify -}}</div>
   {{- end -}}
 
   {{- if $tag }}
